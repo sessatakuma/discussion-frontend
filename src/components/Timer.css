@@ -1,0 +1,226 @@
+.timer-container {
+    background: linear-gradient(135deg, var(--clr-accent) 0%, #4a8a6f 100%);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.timer-container.low-time {
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+}
+
+.timer-container.critical-time {
+    background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+    animation: pulse-timer 1s ease-in-out infinite;
+}
+
+@keyframes pulse-timer {
+    0%, 100% { box-shadow: 0 4px 12px rgba(244, 67, 54, 0.4); }
+    50% { box-shadow: 0 4px 20px rgba(244, 67, 54, 0.8); }
+}
+
+.timer-display {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+}
+
+.timer-icon {
+    font-size: 2rem;
+}
+
+.time-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.timer-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.start-btn {
+    color: #4caf50;
+}
+
+.start-btn:hover:not(:disabled) {
+    background-color: #4caf50;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+.pause-btn {
+    color: #ff9800;
+}
+
+.pause-btn:hover {
+    background-color: #ff9800;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 152, 0, 0.3);
+}
+
+.timer-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.timer-status {
+    display: flex;
+    align-items: center;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 600;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #4caf50;
+    border-radius: 50%;
+    animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+/* Time Warning Modal */
+.time-warning-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.time-warning-modal {
+    background-color: white;
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.warning-icon {
+    font-size: 3rem;
+    color: #ff9800;
+    margin-bottom: 20px;
+}
+
+.time-warning-modal h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.time-warning-modal p {
+    margin: 10px 0;
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.time-warning-modal strong {
+    color: #ff9800;
+    font-size: 1.3rem;
+}
+
+.dismiss-btn {
+    margin-top: 25px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dismiss-btn:hover {
+    background-color: #f57c00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 152, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .timer-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .time-text {
+        font-size: 2rem;
+    }
+    
+    .timer-icon {
+        font-size: 1.5rem;
+    }
+    
+    .timer-controls {
+        width: 100%;
+    }
+    
+    .timer-btn {
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .time-warning-modal {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+}
