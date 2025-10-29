@@ -1,0 +1,118 @@
+.participants-list {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.participants-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.participants-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.participant-count {
+    background-color: var(--clr-secondary);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.participants-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.participant-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.participant-item.hand-raised {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+}
+
+.participant-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.participant-name {
+    font-weight: 500;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.moderator-badge {
+    color: #ffd700;
+    font-size: 0.9rem;
+}
+
+.hand-raised-icon {
+    font-size: 1.2rem;
+    animation: wave 0.5s ease-in-out infinite;
+}
+
+@keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+.hand-raise-btn {
+    background-color: transparent;
+    border: 2px solid var(--clr-secondary);
+    color: var(--clr-secondary);
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.hand-raise-btn:hover {
+    background-color: var(--clr-secondary);
+    color: white;
+}
+
+.hand-raise-btn.active {
+    background-color: var(--clr-secondary);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .participants-list {
+        padding: 15px;
+    }
+    
+    .participant-item {
+        padding: 10px;
+    }
+    
+    .participant-name {
+        font-size: 0.95rem;
+    }
+}
