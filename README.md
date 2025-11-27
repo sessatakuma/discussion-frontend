@@ -1,5 +1,6 @@
 # frontend-template
 A template for sessatakuma front-end development.
+
 ## Getting started
 - Add a `LICENSE` if needed.
 - Modify `name` and `description` in `package.json` and `name` in `package-lock.json`.
